@@ -1,8 +1,7 @@
 ![PGActionSheet](PGActionSheet.gif)
 # PGActionSheet
 >1、 PGActionSheet使用了UITableView进行复用  
->
-2、为了更好的融合当前的界面，PGActionSheet默认的弹出框的透明度是
+>2、为了更好的融合当前的界面，PGActionSheet默认的弹出框的透明度是
 0.7
 
 # CocoaPods安装
