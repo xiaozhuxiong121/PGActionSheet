@@ -8,6 +8,6 @@
 
 import Foundation
 
-@objc protocol PGActionSheetDelegate {
+@objc public protocol PGActionSheetDelegate {
    @objc optional func actionSheet(_ actionSheet: PGActionSheet, clickedButtonAt index: Int)
 }

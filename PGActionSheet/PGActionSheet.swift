@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-typealias handlerAction = (Int)->()
-class PGActionSheet: UIViewController {
+public typealias handlerAction = (Int)->()
+public class PGActionSheet: UIViewController {
     //MARK: - public property
     public var handler: handlerAction!
     public var delegate: PGActionSheetDelegate!
@@ -63,16 +63,16 @@ class PGActionSheet: UIViewController {
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         var height: CGFloat = 44
         var index: Int = 0
@@ -204,7 +204,7 @@ extension PGActionSheet {
 }
 
 extension PGActionSheet: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         if hasButtonList() && hasCancelButton {
             if hasTitle() {
                 return 3
@@ -217,7 +217,7 @@ extension PGActionSheet: UITableViewDataSource {
         }
         return 1
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if hasTitle() {
             if section == 0 {
                 return 1
@@ -238,7 +238,7 @@ extension PGActionSheet: UITableViewDataSource {
         return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if hasTitle() {
             if  indexPath.section == 0 {
                 let cell: PGTableViewTitleCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier1, for: indexPath) as! PGTableViewTitleCell
@@ -272,7 +272,7 @@ extension PGActionSheet: UITableViewDataSource {
 }
 
 extension PGActionSheet: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if  hasTitle() {
             if indexPath.section == 2 {
@@ -294,7 +294,7 @@ extension PGActionSheet: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let reuseIdentifier = "header"
         var view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier)
         if (view == nil) {
@@ -304,7 +304,7 @@ extension PGActionSheet: UITableViewDelegate {
         return view
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if hasCancelButton && self.buttonList != nil && self.buttonList.count != 0 {
             if actionSheetTitle != nil && actionSheetTitle.characters.count != 0 {
                 if section == 2 {
