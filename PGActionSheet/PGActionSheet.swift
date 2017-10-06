@@ -99,12 +99,6 @@ public class PGActionSheet: UIViewController {
         }
     }
     
-    //MARK: - public method
-    public func show(){
-        let controller = UIApplication.shared.keyWindow?.rootViewController
-        controller?.present(self, animated: false, completion: nil)
-    }
-    
     //MARK: - private method
     fileprivate func setup() {
         overlayView = UIView(frame: self.view.bounds)
