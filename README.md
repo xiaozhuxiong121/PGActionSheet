@@ -11,7 +11,7 @@ pod 'PGActionSheet'
 # 使用
 ```
 let actionSheet = PGActionSheet(cancelButton: true, buttonList: ["收藏", "保存", "编辑"])
-actionSheet.show()
+present(actionSheet, animated: false, completion: nil)
 ```
 有两种方式监听点击事件  
 
