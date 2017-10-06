@@ -1,11 +1,11 @@
 PODS:
-  - PGActionSheet (1.0.2)
+  - PGActionSheet (1.0.3)
 
 DEPENDENCIES:
   - PGActionSheet
 
 SPEC CHECKSUMS:
-  PGActionSheet: 1716b28b45f2e4ba776c4ca4457ff79dbfc0d31c
+  PGActionSheet: ccb102ecef47130177e62526b031809ba20768a6
 
 PODFILE CHECKSUM: 60efe3ad9da3b79f166f6458a2751231b7b64e4f
 

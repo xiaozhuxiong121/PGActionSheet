@@ -36,14 +36,14 @@ class ViewController: UIViewController {
     @IBAction func button4Handler() {
         let actionSheet = PGActionSheet(buttonList: ["收藏", "保存", "编辑"])
         actionSheet.delegate = self
-        actionSheet.translucent = true
+        actionSheet.translucent = false
         present(actionSheet, animated: false, completion: nil)
     }
     
     @IBAction func button5Handler() {
         let actionSheet = PGActionSheet(buttonList: ["收藏", "保存", "编辑"])
         actionSheet.delegate = self
-        actionSheet.actionSheetTranslucent = true
+        actionSheet.actionSheetTranslucent = false
         present(actionSheet, animated: false, completion: nil)
     }
     

@@ -37,12 +37,12 @@ actionSheet.actionSheetTitle = "PGActionSheet"
 取消弹出框的透明度  
 
 ```
-actionSheet.actionSheetTranslucent = true
+actionSheet.actionSheetTranslucent = false
 ```
 取消背景的半透明  
 
 ```
-actionSheet.translucent = true
+actionSheet.translucent = false
 ```
 自定义显示字的样式  
 
