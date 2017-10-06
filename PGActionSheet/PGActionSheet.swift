@@ -21,19 +21,19 @@ public class PGActionSheet: UIViewController {
     public var actionSheetTitle: String!
     public var actionSheetTitleFont: UIFont!
     public var actionSheetTitleColor: UIColor!
-    /// 为了更好的融合到当前视图中，弹出框默认alpha是0.7，如果你不想要半透明，可以设置为true
-    public var actionSheetTranslucent: Bool = false {
+    /// 为了更好的融合到当前视图中，弹出框默认alpha是0.7，默认是true，如果你不想要半透明，可以设置为false
+    public var actionSheetTranslucent: Bool = true {
         didSet {
-            if actionSheetTranslucent {
+            if !actionSheetTranslucent {
                 self.tableView.alpha = 1.0
             }
         }
     }
     
-    /// 弹出后，背景是半透明，设置为true，则去掉半透明
-    public var translucent: Bool = false {
+    /// 弹出后，背景是半透明，默认是true，设置为false，则去掉半透明
+    public var translucent: Bool = true {
         didSet{
-            if translucent {
+            if !translucent {
                 self.overlayView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:0)
             }
         }
