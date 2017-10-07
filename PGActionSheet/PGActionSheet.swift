@@ -284,7 +284,7 @@ extension PGActionSheet: UITableViewDelegate {
             handler(indexPath.row)
         }
         if (delegate != nil) {
-            self.delegate.actionSheet!(self, clickedButtonAt: indexPath.row)
+            self.delegate.actionSheet?(self, clickedButtonAt: indexPath.row)
         }
     }
     
