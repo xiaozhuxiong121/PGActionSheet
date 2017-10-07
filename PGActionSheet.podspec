@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PGActionSheet"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "扁平化的ActionSheet。"
   s.homepage     = "https://github.com/xiaozhuxiong121/PGActionSheet"
   s.license      = "Apache License 2.0"
