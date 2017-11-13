@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func button6Handler() {
-        let actionSheet = PGActionSheet(cancelButton: true, buttonList: ["收藏", "保存", "编辑"])
+        let actionSheet = PGActionSheet(cancelButton: true, buttonList: ["收藏", "保存", "编辑","收藏", "保存", "编辑","收藏", "保存", "编辑"])
         actionSheet.delegate = self
         present(actionSheet, animated: false, completion: nil)
         actionSheet.textFont = UIFont.boldSystemFont(ofSize: 20)

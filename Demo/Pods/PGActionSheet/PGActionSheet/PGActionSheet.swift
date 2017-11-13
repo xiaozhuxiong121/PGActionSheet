@@ -76,7 +76,7 @@ public class PGActionSheet: UIViewController {
         super.viewWillAppear(animated)
         var height: CGFloat = 44
         var index: Int = 0
-        if actionSheetTitle != nil && actionSheetTitle?.characters.count != 0 {
+        if actionSheetTitle != nil && actionSheetTitle?.count != 0 {
             if hasCancelButton {
                 index = 2
             }else {
@@ -150,7 +150,7 @@ public class PGActionSheet: UIViewController {
 
 extension PGActionSheet {
     fileprivate func hasTitle() -> Bool {
-        return actionSheetTitle != nil && actionSheetTitle!.characters.count != 0
+        return actionSheetTitle != nil && actionSheetTitle!.count != 0
     }
     
     fileprivate func hasButtonList() -> Bool {
@@ -286,6 +286,7 @@ extension PGActionSheet: UITableViewDelegate {
         if (delegate != nil) {
             self.delegate?.actionSheet!(self, clickedButtonAt: indexPath.row)
         }
+        self.overlayViewTapHandler()
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -300,7 +301,7 @@ extension PGActionSheet: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if hasCancelButton && self.buttonList != nil && self.buttonList.count != 0 {
-            if actionSheetTitle != nil && actionSheetTitle?.characters.count != 0 {
+            if actionSheetTitle != nil && actionSheetTitle?.count != 0 {
                 if section == 2 {
                     return headerHeight
                 }
@@ -311,3 +312,4 @@ extension PGActionSheet: UITableViewDelegate {
         return 0
     }
 }
+
