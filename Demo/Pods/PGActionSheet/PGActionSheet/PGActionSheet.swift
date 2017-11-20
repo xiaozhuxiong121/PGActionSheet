@@ -72,8 +72,8 @@ public class PGActionSheet: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         var height: CGFloat = 44
         var index: Int = 0
         if actionSheetTitle != nil && actionSheetTitle?.count != 0 {
@@ -92,7 +92,11 @@ public class PGActionSheet: UIViewController {
                 height = CGFloat(buttonList.count + index) * height
             }
         }
-        let frame = CGRect(x: 0, y: screenHeight - height, width: screenWidth, height: height)
+        var bottom: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            bottom = self.view.safeAreaInsets.bottom
+        }
+        let frame = CGRect(x: 0, y: screenHeight - height - bottom, width: screenWidth, height: height + bottom)
         UIView.animate(withDuration: 0.2) {
             self.tableView.frame = frame
             self.overlayView.alpha = 1.0
