@@ -21,6 +21,7 @@ public class PGActionSheet: UIViewController {
     public var actionSheetTitle: String?
     public var actionSheetTitleFont: UIFont?
     public var actionSheetTitleColor: UIColor?
+    
     /// 为了更好的融合到当前视图中，弹出框默认alpha是0.7，默认是true，如果你不想要半透明，可以设置为false
     public var actionSheetTranslucent: Bool = true {
         didSet {
@@ -40,6 +41,7 @@ public class PGActionSheet: UIViewController {
     }
     
     //MARK: - private property
+    fileprivate var seletedRow: Int!
     fileprivate let hasCancelButton: Bool
     fileprivate let screenWidth = UIScreen.main.bounds.size.width
     fileprivate let screenHeight = UIScreen.main.bounds.size.height
@@ -135,7 +137,12 @@ public class PGActionSheet: UIViewController {
             self.tableView.frame = frame
             self.overlayView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:0)
         }) { _ in
-            self.dismiss(animated: false, completion: nil)
+            self.dismiss(animated: false, completion: {
+                if self.seletedRow != nil {
+                    self.handler?(self.seletedRow)
+                    self.delegate?.actionSheet!(self, clickedButtonAt: self.seletedRow)
+                }
+            })
         }
     }
     
@@ -284,12 +291,7 @@ extension PGActionSheet: UITableViewDelegate {
             self.overlayViewTapHandler()
             return
         }
-        if handler != nil {
-            handler!(indexPath.row)
-        }
-        if (delegate != nil) {
-            self.delegate?.actionSheet!(self, clickedButtonAt: indexPath.row)
-        }
+        seletedRow = indexPath.row
         self.overlayViewTapHandler()
     }
     
