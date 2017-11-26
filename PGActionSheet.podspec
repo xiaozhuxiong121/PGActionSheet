@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PGActionSheet"
-  s.version      = "1.0.7"
+  s.version      = "1.0.8"
   s.summary      = "类似于微博、微信的ActionSheet。"
   s.homepage     = "https://github.com/xiaozhuxiong121/PGActionSheet"
   s.license      = "Apache License 2.0"
