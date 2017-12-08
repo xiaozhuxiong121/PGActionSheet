@@ -13,7 +13,7 @@ public typealias handlerAction = (Int)->()
 public class PGActionSheet: UIViewController {
     //MARK: - public property
     public var handler: handlerAction?
-    public var delegate: PGActionSheetDelegate?
+    public weak var delegate: PGActionSheetDelegate?
     public var textColor: UIColor?
     public var textFont: UIFont?
     public var cancelTextColor: UIColor?
