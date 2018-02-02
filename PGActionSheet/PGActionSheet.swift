@@ -76,7 +76,7 @@ public class PGActionSheet: UIViewController {
     
     public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        var height: CGFloat = 44
+        var height: CGFloat = 50
         var index: Int = 0
         if actionSheetTitle != nil && actionSheetTitle?.count != 0 {
             if hasCancelButton {
@@ -316,6 +316,14 @@ extension PGActionSheet: UITableViewDelegate {
             }
         }
         return 0
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }
 
